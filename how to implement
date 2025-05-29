@@ -1,0 +1,94 @@
+This is the backend for the Research Assistant Chrome Extension, built using Spring Boot. It handles API requests, data processing, and integrates with the Chrome extension to assist users in organizing research, saving content, and accessing tools more efficiently.
+
+🚀 Features
+RESTful APIs for communication with the Chrome extension
+
+Spring Boot-based project setup
+
+Easy integration and local setup
+
+Scalable and modular structure
+
+🛠️ Getting Started
+Follow the steps below to run the project locally.
+
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/your-username/research-assistant-backend.git
+cd research-assistant-backend
+2. Install Java and Spring CLI
+Ensure you have Java (17 or above) and Spring installed.
+
+Install Java:
+Download and install from https://adoptopenjdk.net/
+
+Install Spring Boot CLI (Optional):
+
+bash
+Copy
+Edit
+sdk install springboot
+Or use Spring Initializr if you're generating from scratch.
+
+3. Set Up the Project
+If you haven’t already, initialize your Spring Boot project via Spring Initializr or ensure these dependencies exist in pom.xml (for Maven):
+
+xml
+Copy
+Edit
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- Add other dependencies here -->
+</dependencies>
+Then, install Maven dependencies:
+
+bash
+Copy
+Edit
+./mvnw clean install
+Or with Maven installed globally:
+
+bash
+Copy
+Edit
+mvn clean install
+4. Run the Application
+Use the Spring Boot Maven plugin to start the server:
+
+bash
+Copy
+Edit
+./mvnw spring-boot:run
+Or:
+
+bash
+Copy
+Edit
+mvn spring-boot:run
+The application will run at:
+http://localhost:8080
+
+🧩 API Integration
+The Chrome extension communicates with this backend via HTTP APIs. Be sure to enable CORS if testing locally with the browser extension.
+
+You can customize allowed origins in your WebConfig.java:
+
+java
+Copy
+Edit
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**").allowedOrigins("chrome-extension://YOUR_EXTENSION_ID");
+    }
+}
+📝 License
+This project is open-source and available under the MIT License.
+
+Let me know if you want to add Docker setup, a PostgreSQL database connection, or anything else!
